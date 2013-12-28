@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+import commands
+
+# Tests to see if apache is running a-ok locally
+
+procs = commands.getoutput("pidof apache2 | wc -w")
+
+if int(procs) < 1:
+    print "Failed: apache not running."
+else:
+    print "OK"

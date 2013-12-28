@@ -1,0 +1,11 @@
+#!/usr/bin/env python
+import commands
+
+# Tests to see if ssh is running a-ok locally
+
+procs = commands.getoutput("pidof sshd | wc -w")
+
+if int(procs) < 1:
+    print "Failed: sshd not running."
+else:
+    print "OK"

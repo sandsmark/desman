@@ -1,0 +1,9 @@
+
+ DESMAN
+ ------
+  Distributed Endangered Service Monitoring And Notification
+
+Architecture:
+Master - Slave
+
+All hosts can become Masters.
