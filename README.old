@@ -1,0 +1,29 @@
+ LollerCoaster
+  (aka. Itks. Service. Tracking. Enforcer.)
+ ~~~~~~~~~~~~~
+  A simple, pluggable and portable service monitor
+
+Architecture:
+---------------------------------------
+ Two machine classes: Master and Slave.
+ Four parts: Test, Manager, Reporter.
+
+::Test
+Test is responsible for running tests, and containing services' states, either
+remote or locally. This part used on Slave machines.
+
+Two-fold, one stateful, and a simple test-runner for launching tests.
+
+The stateful part contains a list of services, and the states
+of said services. It also contains a "dumb" part that simply receives externel
+requests for running local tests.
+
+::Manager
+Manager is responsible for launching tests, either locally or remote. It's also
+responsible for connecting to the Master, and if unsuccesfull, marking it as
+dead and choosing a new Master, which will then report about the death.
+
+::Reporter
+Reporter is responsible for reporting deaths of services, that is; Tests that
+fail. It will have the possibility to report to various mediums, such as IRC,
+XMPP (Jabber), and e-mail.
